@@ -21,14 +21,14 @@ const randomChoice = (array) => {
 for( let i = 0; i < 20; i++){
 
     if(randomChoice(gender) === 'f'){
-        data.push(randomChoice(nameW) +' ' + randomChoice(surname) + ' ' + age)
+        data.push(randomChoice(nameW) +' ' + randomChoice(surname) + '", "age":' + age + ', "gender": "f' )
     }else{
-        data.push(randomChoice(nameM) +' ' + randomChoice(surname) + ' ' + age)
+        data.push(randomChoice(nameM) +' ' + randomChoice(surname) + '", "age":' + age + ', "gender": "m')
     }
 }
   
    const dataSave = data.join('"},{"person":"');  
-        dataSaveJson = '{"people":[{"person":"' + dataSave + '"}]}'
+        dataSaveJson = '[{"person":"' + dataSave +'"'+ '}]'
 fs.writeFile('people.json', dataSaveJson, (err) => {
     if (err) throw err;
     console.log('The file has been saved!');
